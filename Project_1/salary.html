@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>salary</title>
+  <style>
+    body{font-family: Arial, Helvetica, sans-serif;background:#f0f6fb;margin:0;padding:20px}
+    .card{max-width:420px;margin:40px auto;background:#fff;padding:18px;border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,0.06)}
+    h2{margin:0 0 12px;font-size:20px}
+    label{display:block;margin-top:8px;font-size:14px;color:#333}
+    input{width:100%;padding:9px;margin-top:6px;border:1px solid #dce7f3;border-radius:6px}
+    button{margin-top:12px;padding:10px 14px;border:none;background:#0b78ff;color:#fff;border-radius:6px;cursor:pointer}
+    #grossSalary{margin-top:12px;font-weight:700}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Salary Calculator</h2>
+    <form id="form">
+      <label for="basicSalary">Basic Salary</label>
+      <input type="number" id="basicSalary" placeholder="Enter basic salary" required>
+
+      <label for="hra">HRA (%)</label>
+      <input type="number" id="hra" placeholder="HRA percent">
+
+      <label for="da">DA (%)</label>
+      <input type="number" id="da" placeholder="DA percent">
+
+      <label for="ta">TA (%)</label>
+      <input type="number" id="ta" placeholder="TA percent">
+
+      <button type="submit">Calculate Gross</button>
+    </form>
+    <div id="grossSalary" aria-live="polite"></div>
+  </div>
+
+  <script src="salary.js"></script>
+</body>
+</html>
