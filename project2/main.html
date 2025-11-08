@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>Weather Outfit Suggestion</title>
+  <style>
+    body {
+      background: #dbeafe;
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container-box {
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      width: 320px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 22px;
+      color: #0d6efd;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #555;
+      margin-bottom: 15px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      background-color: #0d6efd;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #0b5ed7;
+    }
+
+    #message {
+      font-size: 18px;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    #clothes {
+      color: #333;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container-box">
+    <h1>🌤️ Weather Outfit</h1>
+    <p>See what you should wear today</p>
+
+    <form id="form">
+      <input type="number" id="temp" placeholder="Enter temperature (°C)">
+      <button type="submit">Check</button>
+    </form>
+
+    <div id="message"></div>
+    <p id="clothes"></p>
+  </div>
+
+  <script>
+    document.getElementById('form').addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      let temp = document.getElementById('temp').value;
+      let message = "";
+      let clothes = "";
+
+      if (temp === "") {
+        document.getElementById("message").innerText = "⚠️ Please enter a temperature!";
+        document.getElementById("clothes").innerText = "";
+        return;
+      }
+
+      temp = Number(temp);
+
+      if (temp <= 10) {
+        message = "It's cold 🥶";
+        clothes = "Wear a jacket, sweater, and warm pants.";
+      } 
+      else if (temp <= 20) {
+        message = "It's cool 😊";
+        clothes = "Wear a light jacket or hoodie.";
+      } 
+      else if (temp <= 30) {
+        message = "It's warm 🙂";
+        clothes = "T-shirt and jeans are fine.";
+      } 
+      else if (temp <= 40) {
+        message = "It's hot 🔥";
+        clothes = "Wear light cotton clothes.";
+      } 
+      else {
+        message = "It's too hot 🥵";
+        clothes = "Wear very light clothes and drink water!";
+      }
+
+      document.getElementById("message").innerText = message;
+      document.getElementById("clothes").innerText = clothes;
+    });
+  </script>
+</body>
+</html>
