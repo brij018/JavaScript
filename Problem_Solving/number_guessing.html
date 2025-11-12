@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Number Guessing Game</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f5f5;
+      color: #111;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      width: 340px;
+      text-align: center;
+      box-sizing: border-box;
+    }
+
+    h2 {
+      margin: 0 0 8px;
+      font-size: 18px;
+    }
+
+    p {
+      margin: 6px 0;
+      font-size: 15px;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 8px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 15px;
+      text-align: center;
+      margin: 10px 0;
+      box-sizing: border-box;
+    }
+
+    button {
+      background: #2979ff;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 9px 16px;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    button:active {
+      transform: translateY(1px);
+    }
+
+    #message {
+      font-size: 15px;
+      margin-top: 10px;
+      min-height: 20px;
+    }
+
+    #attempts {
+      font-size: 14px;
+      color: #555;
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Number Guessing Game</h2>
+    <p>Guess a number between 1 and 50</p>
+    <input type="number" id="guessInput" placeholder="Enter your guess" min="1" max="50">
+    <button onclick="checkGuess()">Guess</button>
+    <p id="message"></p>
+    <p id="attempts"></p>
+  </div>
+
+  <script>
+    const randomNumber = 27;
+    let attempts = 0;
+
+    function checkGuess() {
+      const userGuess = parseInt(document.getElementById("guessInput").value, 10);
+      const message = document.getElementById("message");
+      const attemptsText = document.getElementById("attempts");
+
+      if (isNaN(userGuess) || userGuess < 1 || userGuess > 50) {
+        message.textContent = "Please enter a number between 1 and 50.";
+        message.style.color = "#d32f2f";
+        return;
+      }
+
+      attempts++;
+
+      if (userGuess === randomNumber) {
+        message.textContent = `Congratulations! You guessed it right — ${randomNumber}`;
+        message.style.color = "#00a86b";
+        attemptsText.textContent = `Total Attempts: ${attempts}`;
+      } else if (userGuess < randomNumber) {
+        message.textContent = "Too low! Try a higher number.";
+        message.style.color = "#ff8f00";
+        attemptsText.textContent = `Attempts: ${attempts}`;
+      } else {
+        message.textContent = "Too high! Try a lower number.";
+        message.style.color = "#ff8f00";
+        attemptsText.textContent = `Attempts: ${attempts}`;
+      }
+    }
+  </script>
+</body>
+</html>
