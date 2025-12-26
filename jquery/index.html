@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <title>JQuery</title>
+</head>
+<body>
+    <h2 id="title">Hello</h2>
+    <p class="text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint, quidem.</p>
+    <p class="text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam, dicta!</p>
+    <button id="btn">Click</button>
+
+    <script>
+        $(document).ready(()=>{
+            $("#btn").click(()=>{
+                $(".text").toggle();
+                $("#title").text("jQuery Selector Example");
+            });
+        });
+    </script>
+</body>
+</html>
