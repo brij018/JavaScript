@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #141e30, #243b55);
+            font-family: "Poppins", sans-serif;
+        }
+
+        .counter-box {
+            display: flex;
+            gap: 40px;
+            background: rgba(255, 255, 255, 0.12);
+            padding: 40px 60px;
+            border-radius: 20px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .counter {
+            font-size: 64px;
+            font-weight: 700;
+            color: #00e5ff;
+            text-shadow: 0 0 15px rgba(0, 229, 255, 0.6);
+            transition: transform 0.3s ease;
+        }
+
+        .counter:hover {
+            transform: scale(1.08);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="counter-box">
+        <h1 class="counter">123456</h1>
+        <h1 class="counter">98765</h1>
+    </div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.counter').counterUp({
+            delay: 25,
+            time: 2000
+        });
+    });
+</script>
+
+</body>
+</html>
